@@ -4,7 +4,7 @@ var horas = 0;
 var minutos = 0;
 var segundos = 0;
 
-var temposegundos = 1000; //quatos milésimos valem 1 segundo
+var temposegundos = 1000;
 var stopwatch;
 
 function start() {
