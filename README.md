@@ -1,2 +1,3 @@
 # Clock
- Clock aplication ehit Java Script
+
+Clock application whit Java Script
