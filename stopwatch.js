@@ -7,14 +7,18 @@ var segundos = 0;
 var temposegundos = 1000;
 var stopwatch;
 
+var controle = false;
+
 function start() {
-  stopwatch = setInterval(() => {
-    timer();
-  }, temposegundos);
+  if (controle == false) {
+    stopwatch = setInterval(timer, temposegundos);
+    controle = true;
+  }
 }
 
 function pause() {
   clearInterval(stopwatch);
+  controle = false;
 }
 
 function stop() {
@@ -22,6 +26,7 @@ function stop() {
   horas = 0;
   minutos = 0;
   segundos = 0;
+  controle = false;
 
   document.getElementById('counter').innerText = '00:00:00';
 }
@@ -47,6 +52,4 @@ function timer() {
     (segundos < 10 ? '0' + segundos : segundos);
 
   document.getElementById('counter').innerText = format;
-
-  return format;
 }
