@@ -1,12 +1,8 @@
 'user strict';
 
-var horas = 0;
-var minutos = 0;
-var segundos = 0;
-
+var clock = { horas:0, minutos:0, segundos:0};
 var temposegundos = 1000;
 var stopwatch;
-
 var controle = false;
 
 function start() {
@@ -23,33 +19,33 @@ function pause() {
 
 function stop() {
   clearInterval(stopwatch);
-  horas = 0;
-  minutos = 0;
-  segundos = 0;
+  clock.horas = 0;
+  clock.minutos = 0;
+  clock.segundos = 0;
   controle = false;
 
   document.getElementById('counter').innerText = '00:00:00';
 }
 
 function timer() {
-  segundos++;
+  clock.segundos++;
 
-  if (segundos == 60) {
-    segundos = 0;
-    minutos++;
+  if (clock.segundos == 60) {
+    clock.segundos = 0;
+    clock.minutos++;
 
-    if (minutos == 60) {
-      minutos = 0;
-      horas++;
+    if (clock.minutos == 60) {
+      clock.minutos = 0;
+      clock.horas++;
     }
   }
 
   var format =
-    (horas < 10 ? '0' + horas : horas) +
+    (clock.horas < 10 ? '0' + clock.horas : clock.horas) +
     ':' +
-    (minutos < 10 ? '0' + minutos : minutos) +
+    (clock.minutos < 10 ? '0' + clock.minutos : clock.minutos) +
     ':' +
-    (segundos < 10 ? '0' + segundos : segundos);
+    (clock.segundos < 10 ? '0' + clock.segundos : clock.segundos);
 
   document.getElementById('counter').innerText = format;
 }
